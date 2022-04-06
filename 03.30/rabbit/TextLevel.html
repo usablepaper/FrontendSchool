@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <!-- <img width="200px" srcset="./img/ra3.png 3x, ./img/ra2.png 2x" src="./img/ra1.png" alt=""> -->
+    
+    <img srcset="./img/ra3.png 700w,
+    ./img/ra2.png 500w"
+    sizes="(min-width:960px) 500px,
+    (min-width:620px) 300px"
+    src="./img/ra1.png"
+    alt="test"
+    >
+
+    <!-- <picture>
+        <source srcset="./img/ra3.png" media="(min-width:960px)">
+        <source srcset="./img/ra2.png" media="(min-width:620px)"> -->
+        <!-- 포맷을 바꿔야할듯 -->
+        <!-- <img src="./img/ra1.png" alt="">
+    </picture> -->
+</body>
+</html>

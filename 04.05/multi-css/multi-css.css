@@ -1,0 +1,4 @@
+@import "./multi-csscss.css";
+p {
+    background-color: red;
+}

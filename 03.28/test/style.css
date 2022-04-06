@@ -1,0 +1,31 @@
+body,h1,h2 {
+    margin: 0px;
+    padding: 0px;
+}
+
+footer {
+    text-align: center;
+    background-color: black;
+    color: #000000;
+}
+
+p {
+    font-size: 20px;
+}
+
+.main-box {
+    width: 500px;
+    text-align: center;
+    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+    padding: 30px;
+    margin: 30px;
+    box-shadow: 0 1px 20px 0 rgb(131, 75, 75);
+}
+
+.main-box-title {
+    color: blue;
+    font-weight: bold;
+}

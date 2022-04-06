@@ -1,0 +1,15 @@
+.float-wrap {
+    overflow: hidden;
+}
+
+.left-item {
+    float: left;
+    margin: 0;
+
+}
+
+.right-item {
+    float: right;
+    margin: 0;
+
+}
