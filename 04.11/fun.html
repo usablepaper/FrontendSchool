@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>재미있는거</title>
+        <style>
+            body {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            a {
+                text-decoration: none;
+                color: #351435;
+                font-family: sans-serif;
+                font-size: 40px;
+                border: 3px solid #351435;
+                padding: 40px 80px;
+                position: relative;
+                transition: all 1s;
+                overflow: hidden;
+            }
+
+            a:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                background-color: #351435;
+                z-index: -1;
+                transform: translateY(-100%);
+                transition: all 1s;
+            }
+
+            a:hover:before {
+                transform: translateY(0);
+            }
+
+            a:hover {
+                color: white;
+            }
+            div {
+                width: 200px;
+                height: 50px;
+                background: brown;
+                transition: all 0.5s;
+            }
+            div:hover {
+                border-radius: 100px;
+                width: 250px;
+                height: 70px;
+                background: burlywood;
+                transform: translateY(10px) rotate(10deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <a href="#">Hello</a>
+    </body>
+</html>
