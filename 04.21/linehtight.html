@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <style>
+            .con {
+                width: 500px;
+                height: 150px;
+                background-color: red;
+            }
+            .box {
+                width: 60px;
+                background-color: blue;
+            }
+
+            .box:nth-child(1) {
+                display: inline-block;
+                line-height: 150px;
+            }
+            .box:nth-child(2) {
+                display: inline-block;
+                line-height: 200px;
+            }
+            .box:nth-child(3) {
+                display: inline-block;
+                line-height: 250px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="con">
+            <div class="box">hellow</div>
+            <div class="box">hellow</div>
+            <div class="box">hellow</div>
+        </div>
+    </body>
+</html>
