@@ -1,0 +1,11 @@
+.one {
+    color: red;
+    .two {
+        color: blue;
+        @at-root .three {
+            color: green;
+        }
+    }
+}
+
+// 중첩에서 벗어나고 싶은 선택자 앞에 @at-root 를 작성합니다.

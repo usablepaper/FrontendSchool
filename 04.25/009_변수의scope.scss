@@ -1,0 +1,17 @@
+.one {
+    $value: red;
+    color: $value;
+}
+
+$value2: green;
+.two {
+    color: $value2;
+    // color: $value;
+    // value는 지역변수이기 때문에 사용안됨
+    .three {
+        color: $value2;
+    }
+    @at-root .four {
+        color: $value2;
+    }
+}

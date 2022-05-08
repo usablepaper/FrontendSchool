@@ -1,0 +1,26 @@
+@mixin sample {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @content;
+}
+
+.a {
+    @include sample {
+        color: white;
+    }
+}
+
+@mixin one {
+    width: 100px;
+    height: 100px;
+    color: white;
+    @content;
+}
+
+.b {
+    @include one;
+    background-color: black;
+}
+
+//  @content는 명시를 위해 작성하는 거임, 안써도 추가 가능

@@ -1,0 +1,38 @@
+@mixin aqua-button($width, $height, $radius) {
+    width: $width;
+    height: $height;
+    border-radius: $radius;
+    background-color: aqua;
+}
+
+.btn {
+    @include aqua-button(100px, 50px, 20px);
+}
+
+@mixin red-button($width, $height, $radius: 10px) {
+    width: $width;
+    height: $height;
+    border-radius: $radius;
+    background-color: red;
+}
+
+.btn_ {
+    @include red-button(100px, 50px);
+}
+
+.btn__ {
+    @include red-button(100px, 50px, 50px);
+}
+
+// 중앙값 비우기
+
+@mixin blue-button($width, $height: 10px, $radius: 10px) {
+    width: $width;
+    height: $height;
+    border-radius: $radius;
+    background-color: blue;
+}
+
+.btn___ {
+    @include blue-button(100px, $radius: 10px);
+}
