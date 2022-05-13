@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <style>
+            .box {
+                width: 500px;
+                height: 500px;
+                background-color: black;
+            }
+            .red {
+                background-color: red;
+            }
+            .yellow {
+                background-color: yellow;
+            }
+            .green {
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+        <button class="button-red">빨강</button>
+        <button class="button-yellow">노랑</button>
+        <button class="button-green">초록</button>
+        <script>
+            let buttonRed = document.querySelector(".button-red");
+            let buttonYellow = document.querySelector(".button-yellow");
+            let buttonGreen = document.querySelector(".button-green");
+            let box = document.querySelector(".box");
+
+            function boxRed() {
+                box.classList.add("red");
+                box.classList.remove("green", "yellow");
+            }
+            function boxYellow() {
+                box.classList.add("yellow");
+                box.classList.remove("green", "red");
+            }
+
+            function boxGreen() {
+                box.classList.add("green");
+                box.classList.remove("red", "yellow");
+            }
+
+            buttonRed.addEventListener("click", boxRed);
+            buttonYellow.addEventListener("click", boxYellow);
+            buttonGreen.addEventListener("click", boxGreen);
+        </script>
+    </body>
+</html>

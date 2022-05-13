@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+    </head>
+    <body>
+        <div></div>
+        <script>
+            // const name = "John";
+
+            // const name = "<script>alert('sss')<\/script>";
+
+            const name = "<img src='x' onerror='alert(1)'>";
+
+            document.querySelector("div").innerHTML = name;
+        </script>
+    </body>
+</html>
