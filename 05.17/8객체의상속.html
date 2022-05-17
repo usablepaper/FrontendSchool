@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+    </head>
+    <body>
+        <script>
+            function Parent() {
+                this.name = "재현";
+            }
+
+            Parent.prototype.rename = function (name) {
+                this.name = name;
+            };
+            Parent.prototype.sayName = function () {
+                console.log(this.name);
+            };
+
+            const newParent = new Parent();
+            console.log(newParent.name); // 인스턴스 확인
+
+            newParent.rename("대표님");
+            console.log(newParent.name); // 인스턴스 변경 확인
+
+            // 상속받을 자식 생성하자
+
+            function Child() {
+                Parent.call(this);
+            }
+
+            Child.prototype = Object.create(Parent.prototype);
+            // console.log(child.name);
+
+            const child = new Child();
+            console.log(child.name);
+            child.rename("영웅님");
+            console.log(child.name);
+            console.log(child.sayName);
+
+            Child.prototype.canWalk = function () {
+                console.log("걷는다");
+            };
+
+            const child2 = new Child();
+            child2.sayName();
+            child2.rename("대표님");
+            // 그냥 생성하는거랑 부모 참조하는거랑 차이가 뭔지 잘 모르겠다....
+        </script>
+    </body>
+</html>

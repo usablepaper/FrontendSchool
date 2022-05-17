@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+    </head>
+    <body>
+        <script>
+            // const foods = ["햇반", "오뚜기밥", "찹쌀밥", "볶음밥", "콩밥"];
+            // function RandomMenu(menu) {
+            //     let randomPick = Math.floor(Math.random() * menu.length);
+            //     console.log(menu[randomPick]);
+            // }
+
+            // let todayMenu = new RandomMenu(foods);
+
+            const foods = ["햇반", "오뚜기밥", "찹쌀밥", "볶음밥", "콩밥"];
+            function RandomMenu(menu) {
+                this.menuName = menu;
+                this.sayMenu = function () {
+                    // let randomPick = Math.floor(
+                    //     Math.random() * this.menuName.length
+                    // );
+                    // console.log(this.menuName[randomPick]);
+                    console.log(
+                        this.menuName[
+                            Math.floor(Math.random() * this.menuName.length)
+                        ]
+                    );
+                };
+            }
+
+            let todayMenu = new RandomMenu(foods);
+            todayMenu.sayMenu();
+        </script>
+    </body>
+</html>

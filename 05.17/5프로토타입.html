@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+    </head>
+    <body>
+        <script>
+            // const foods = ["햇반", "오뚜기밥", "찹쌀밥", "볶음밥", "콩밥"];
+            // const foods2 = [
+            //     "햇반",
+            //     "오뚜기밥",
+            //     "찹쌀밥",
+            //     "볶음밥",
+            //     "콩밥",
+            //     "된장국",
+            // ];
+            // function RandomMenu(menu) {
+            //     this.menuName = menu;
+            //     this.sayMenu = function () {
+            //         console.log(
+            //             this.menuName[
+            //                 Math.floor(Math.random() * this.menuName.length)
+            //             ]
+            //         );
+            //     };
+            // }
+
+            // let todayMenu = new RandomMenu(foods);
+            // let todayMenu2 = new RandomMenu(foods2);
+            // todayMenu.sayMenu();
+
+            // console.log(todayMenu.sayMenu === todayMenu2.sayMenu);
+
+            //위 예제는 프로토타입을 사용하지 않아서 생성된 모든 인스턴스가 함수도 다른 함수를 생성해서, 같은 함수를 공유하지 않고있음을 보여줌
+            //아래 예제는 프로토타입을 사용하여 생성자가 만든 모든 인스턴스가 같은 함수를 공유함을 보여줌
+
+            const foods = ["햇반", "오뚜기밥", "찹쌀밥", "볶음밥", "콩밥"];
+            const foods2 = [
+                "햇반",
+                "오뚜기밥",
+                "찹쌀밥",
+                "볶음밥",
+                "콩밥",
+                "된장국",
+            ];
+            function RandomMenu(menu) {
+                this.menuName = menu;
+            }
+
+            RandomMenu.prototype.sayMenu = function () {
+                console.log(
+                    this.menuName[
+                        Math.floor(Math.random() * this.menuName.length)
+                    ]
+                );
+            };
+
+            let todayMenu = new RandomMenu(foods);
+            let todayMenu2 = new RandomMenu(foods2);
+            // todayMenu.sayMenu();
+            console.log(todayMenu.sayMenu === todayMenu2.sayMenu);
+        </script>
+    </body>
+</html>
