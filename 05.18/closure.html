@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 전역스코프, 함수스코프, 블록스코프(es6)
+        // Scope = 변수의 생존범위
+        // 스코프체인
+        // 스코프는 이름이 충돌하는 문제를 해결해 주기도 한다.
+        // 함수의 실행이 끝나거나 return을 만나면 변수들이 다 사라진다. (실행할 때마다 다시 선언)
+        // 스코프는 이런식으로 메모리 관리가 가능하다. (실행되지 않는 한 이름 말고 함수 내용물은 메모리차지x)
+        // 함수 안에서는 부모 ? 변수 다 접근가능함. 스코프의 특징
+
+        var func1 = function () {
+            var a = 1;
+            var b = 2;
+            console.log(a+b);
+            // return a + b;
+        }
+
+        var a = 20;
+
+        func1();
+
+        var func =function() {
+            var a =1;
+            var b =2;
+
+            var func2 = function(){
+                var b =5;
+                var c =6;
+                a= a+b+c;
+                console.log(a);
+            }
+            func2();
+        }
+
+        func();
+
+        // 외부에서(전역공간) 스코프 내 변수 접근 불가
+        // var을 빼면 전역처럼 되는데 이게 var의 문제인지 아니면 콘솔에서 선언이 된건지 궁금하다.
+
+        function test() {
+            var val1 = 'hello';
+            var var2 = 'world';
+        }
+
+        // test();
+
+        console.log(val1);
+        console.log(val2);
+    </script>
+</body>
+</html>

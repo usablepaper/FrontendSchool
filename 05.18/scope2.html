@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var outer = function() {
+        //     var a =1;
+
+        //     var inner = function() {
+        //         var b = 6;
+        //         var c = 7;
+        //         a = a + b + c;
+
+        //         console.log(a);
+        //     }
+        //     inner();
+        // }
+        // outer();
+        // 그런데 만약 내부 함수가 외부 함수보다 오래 살아 있는 경우에, 외부함수에 있던 변수들은 어떻게 될까요?
+
+                var outer = function() {
+            var a =1;
+
+            var inner = function() {
+                var b = 6;
+                var c = 7;
+                a = a + b + c;
+
+                console.log(a);
+            }
+            return inner;
+        }
+        var newInner = outer();
+        newInner();
+
+        // inner 함수만 살아남은 상태인데 스코프체인으로 찾던 a변수가 여전히 살아있음.
+        // 자신을 포함하는 함수에 접근할 수 있는 권한을 가짐 
+        // 외부에서 접근할 수 없는 폐쇄된 공간을 만들고 접근하기 위한 테크닉을 클로저라한다.
+        // java의 private를 대신할 수 있는 개념?
+        
+
+    </script>
+</body>
+</html>

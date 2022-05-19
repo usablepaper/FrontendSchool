@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+    </head>
+    <body>
+        <script>
+            // 간단한 투두 리스트기능 구현해보기
+            // 1. 해야할 일 Todo 클래스(내용, 상태 두 가지 프로퍼티를 가집니다.)
+            // 2. Todo 클래스는 상태를 변경하는 changeState 메서드를 가집니다.
+            // 3. 할일의 목록을 관리하는 관리자를 추상화한 TodoManager 클래스 (할일 목록을 프로퍼티로 가집니다.)
+            // 4. 할 일을 저장하고(addItem), 할 일의 목록을 보여주며(getItems),
+            // 할 일의 남은 갯수를 반환하는(getLeftTodoCount) 세 가지 메소드를 가집니다.
+            // let todoList = [
+            //     {
+            //         item: '오늘 할 일',
+            //         finished: true
+            //     }
+            // ]
+
+            // class Todo {
+            //     constructor(item) {
+            //         this.item = item;
+            //         this.finished = false;
+            //     }
+            //     changeState() {
+            //         this.finished = true;
+            //     }
+            // }
+
+            // // true인 경우 생각하기, finished 값을 적지말고 매개변수로 초기화해주기 매니저의 배열도 마찬가지
+            // // 남은 할일의 갯수는 필터가 필요함!
+
+            // class TodoManager {
+            //     constructor() {
+            //         this.todos = [];
+            //     }
+            //     addItem(item) {
+            //         this.todos.push(new Todo(item));
+            //     }
+            //     getItems() {
+            //         return this.todos;
+            //     }
+            //     getLeftTodoCount() {
+            //         return this.todos.length;
+            //     }
+            // }
+
+            // const todos = new TodoManager();
+
+            // ----- //
+
+            class Todo {
+                constructor(item, finished) {
+                    this.item = item;
+                    this.finished = finished;
+                }
+                changeState() {
+                    this.finished = !this.finished;
+                }
+            }
+
+            class TodoManager {
+                constructor() {
+                    this.todoList = [];
+                }
+                addItem(item, finished = false) {
+                    // const todo = new Todo(item,finished);
+                    this.todoList.push(new Todo(item, finished));
+                }
+                getItems() {
+                    return this.todoList;
+                }
+                getLeftTodoCount() {
+                    this.todoList.reduce(
+                        (total, current) => {
+                            if (current.finished === false) {
+                                return ++total;
+                            } else {
+                                return total;
+                            }
+                        },
+                        0 //0 은 total의 초기값
+                    );
+                }
+            }
+
+            const todos = new TodoManager();
+        </script>
+    </body>
+</html>

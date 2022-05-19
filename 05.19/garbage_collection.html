@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+    </head>
+    <body>
+        <script>
+            // case.1
+            var me = { age: 30 };
+            var you = me;
+            //{age:30}참조하는 카운:2
+
+            me = null;
+            // {age:30} 참조하는 카운:1
+
+            you = null;
+            // {age:30} 참조하는 카운:0 ==> 가비지 컬렉션 대상이 됩니다.
+
+            // case.2
+            var x = {
+                //obj1
+                y: {
+                    //obj2
+                    z: 1,
+                },
+            };
+
+            // x가 참조하는 객체는 obj1, y가 참조하는 객체는 obj2
+
+            var a = x; //obj1 참조카운트 : 2 (x,a)
+            x = 1; //obj1 참조카운트 : 1 (a)
+
+            var b = a.y; //obj2 참조카운트 : 2 (a.y, b)
+            a = 2; //obj2 참조카운트 : 1 (b), obj1 참조카운트 : 0
+            // obj1가 0이라서 가비지컬렉터가 갖고가야되는데 그안에 obj2가 아직 남아있네?
+            // 가비지컬렉터가 제거하지 못하게 됨
+            // obj1이 불필요하게 남아있기 때문에 메모리 누수 발생!!
+            // 근데 마크스위프? 순환참조는 이제 문제가 되지 않는다?
+            // https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management#mark-and-sweep_algorithm
+
+            // case.3 클로저 메모리 누수문제
+
+            function outer() {
+                let privateVal = ["test"];
+
+                function getPrivate() {
+                    return privateVal;
+                }
+                return getPrivate;
+            }
+
+            const getPrivate = outer();
+            let secretVal = private();
+
+            console.log(secretVal);
+
+            // secretVal이 남아있는 outer껍데기가 남아있게 된다 안에는 사라지는데..
+            // 그래서 메모리 낭비가 있을 수있으니 조심해야한다
+            // 이를 초기화시킬 수 있다. secretVal을 다 쓰고 나면 = null 이나 = undefined를 할당해서 없애줘야한다.
+            // undefined나 null인게 중요한 건 아니고 값을 재할당해서 함수와의 연결을 끊어주는 거임!
+
+            // - 지금 outer 함수를 실행시켜서 private라는 변수에 return값을 받아왔는데
+            // - 그 return이 getPrivate라서 getPrivate는 참조되고 outer는 카운트되지 않는군여
+        </script>
+    </body>
+</html>

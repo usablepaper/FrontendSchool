@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background-color: lightpink;
+                margin: 300px auto 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <script>
+            const box = document.querySelector("div");
+            let Num = 0;
+            document.addEventListener("keydown", (e) => {
+                if (e.code == "ArrowRight") {
+                    Num += 10;
+                    box.style.transform = `translateX(${Num}px)`;
+                } else if (e.code == "ArrowLeft") {
+                    Num -= 10;
+                    box.style.transform = `translateX(${Num}px)`;
+                }
+            });
+        </script>
+    </body>
+</html>

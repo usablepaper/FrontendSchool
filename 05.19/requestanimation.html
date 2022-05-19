@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background-color: lightpink;
+                margin: 300px auto 0;
+                /* transition: 0.2s; */
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <script>
+            const box = document.querySelector("div");
+
+            // let Num = 0;
+            // let Num2 = 0;
+            // requestAnimationFrame; 사용해보자! 애니메이션 최적화
+
+            let pos = 0;
+            let keys = {};
+            function move(e) {
+                keys[e.key] = true;
+                console.log(keys);
+            }
+            function stop(e) {
+                keys[e.key] = false;
+            }
+            document.addEventListener("keydown", move);
+            document.addEventListener("keyup", stop);
+
+            function play() {
+                if (keys.ArrowRight) {
+                    pos += 5;
+                    box.style.transform = `translateX(${pos}px)`;
+                    console.log("right pushed");
+                }
+                if (keys.ArrowLeft) {
+                    pos -= 5;
+                    box.style.transform = `translateX(${pos}px)`;
+                    console.log("left pushed");
+                }
+                window.requestAnimationFrame(play);
+            }
+
+            window.requestAnimationFrame(play);
+            // window.addEventListener("keydown", play);
+
+            // document.addEventListener("keydown", (e) => {
+            //     if (e.code == "ArrowRight") {
+            //         Num += 10;
+            //         box.style.transform = `translate(${Num}px, ${Num2}px)`;
+            //     } else if (e.code == "ArrowLeft") {
+            //         Num -= 10;
+            //         box.style.transform = `translate(${Num}px, ${Num2}px)`;
+            //     } else if (e.code == "ArrowDown") {
+            //         Num2 += 10;
+            //         box.style.transform = `translate(${Num}px, ${Num2}px)`;
+            //     } else if (e.code == "ArrowUp") {
+            //         Num2 -= 10;
+            //         box.style.transform = `translate(${Num}px, ${Num2}px)`;
+            //     }
+            // });
+        </script>
+    </body>
+</html>
