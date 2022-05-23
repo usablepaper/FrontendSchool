@@ -21,12 +21,15 @@
             // 자식 역할의 생성자함수
             function Child() {
                 Parent.call(this);
-            }
+            } //Parent의 this를 Child가 쓸 수 있도록? this를 변경
 
             Child.prototype = Object.create(Parent.prototype);
+            // Object.create 함수는 주어진 인자를 Child.prototype에 연결하는 역할을 합니다. -> 프로토타입 공유
             Child.prototype.canWalk = function () {
                 console.log("now i can walk!!");
             };
+            // 이렇게 child만의 메소드를 따로 등록할 수 도 있다.
+            
         </script>
     </body>
 </html>
